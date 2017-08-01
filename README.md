@@ -20,3 +20,8 @@
 ## 播放器拉流
 
 可参考[clappr.io](https://github.com/clappr/clappr.git)
+
+## 降延迟的方案
+
+https://stackoverflow.com/questions/24038308/reduce-hls-latency-from-30-seconds
+http://phoboslab.org/log/2013/09/html5-live-video-streaming-via-websockets
