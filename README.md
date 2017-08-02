@@ -27,3 +27,6 @@
 
 https://stackoverflow.com/questions/24038308/reduce-hls-latency-from-30-seconds
 http://phoboslab.org/log/2013/09/html5-live-video-streaming-via-websockets
+
+## 参考文档
+[Windows FFmpeg推流](https://trac.ffmpeg.org/wiki/DirectShow)
