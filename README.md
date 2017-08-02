@@ -18,7 +18,9 @@
     ffmpeg -f avfoundation -framerate 30 -i "0" -c:v libx264 -an -f flv rtmp://localhost/myapp/mystream #MacOS
 
     c:\> ffmpeg -list_devices true -f dshow -i dummy
-    ffmpeg -f dshow -i video="Microsoft Camera Front" -b:v 128k -c:v libx264 -an -f flv rtmp://116.62.61.121:50071/hls/device #Windows
+    
+    ffmpeg -f dshow -i video="Microsoft Camera Front" -b:v 128k -c:v libx264 -an -f flv rtmp://116.62.61.121:50071/hls/device #Windows
+
 
 ## 播放器拉流
 
