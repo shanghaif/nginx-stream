@@ -1,0 +1,86 @@
+.toolbar-through .page-content.no-head-content{
+    padding-top: 0;
+}
+.limit-analyse{
+    width:100%;
+    padding:0.675rem 0.75rem 0.1rem;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    .analyse-top{
+        font-size: 0.7rem;
+        color:#333c48;
+        padding-left: 1.55rem;
+        position: relative;
+        i{
+            position: absolute;
+            left:0;
+            top: 0;
+            color:#30a0e5;
+            font-size: 0.85rem;
+        }
+    }
+    .analyse-contain{
+        padding-left: 1.55rem;
+        padding-top: 0.2rem;
+        margin-top: 0.3rem;
+        color:#55688d;
+        font-size: 0.6rem;
+        background:url(../images/dian.png) repeat-y 0.4rem 0.1rem;
+        .start-end{
+            padding-left: 0.7rem;
+            line-height: 0.9rem;
+            background:url(../images/two-round.png) no-repeat 0 0.3rem;
+            background-size: 0.275rem 2.025rem;
+            p{
+                color:#333c48;
+                font-size: 0.65rem;
+            }
+        }
+    }
+    .analyse-speed{
+        font-size: 0.6rem;
+        color:#55688d;
+        line-height: 0.9rem;
+        .overspeed{
+            font-size: 0.7rem;
+            color:#30a0e5;
+        }
+    }
+    // 滑块
+    .slider.slider-horizontal{
+        margin-bottom: 0.6rem;
+        margin-top: 0.1rem;
+        .tooltip-main{
+            display: none;
+            margin-left: 0!important;
+        }
+        .slider-track{
+            height:5px;
+            background: #e2ebf0;
+        }
+        .slider-selection{
+            background:#30a0e5;
+        }
+        .slider-handle{
+            width:16px;
+            height:16px;
+            background:#31a3e9;
+            position: relative;
+            box-shadow: 1px 0 4px #c0e2f7;
+            &:before {
+                content: '';
+                display: block;
+                width:8px;
+                height:8px;
+                border-radius: 100%;
+                background-color: #fff;
+                position: absolute;
+                left:50%;
+                top: 50%;
+                margin-left: -4px;
+                margin-top: -4px;
+            }
+        }
+    }
+}

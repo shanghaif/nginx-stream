@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>径卫</title>
+	<meta name="description" content="">
+	<meta name="author" content="author">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!--高版本安卓Chrome卡片式切换的时候的皮肤（卡片）颜色-->
+	<meta name="theme-color" content="#9f0800">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<!--Safari 将会对有内容溢出 Viewport 区域的页面进行缩放适配，使溢出的内容完整展示而不出现滚动条，而在 Viewport 设置中引入了一个新属性 shrink-to-fit = no，该属性可以禁止这种缩放行为的发生。-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- 指定苹果设备添加到主屏的标题 -->
+	<meta name="apple-mobile-web-app-title" content="径卫">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- IOS / Android 主屏图标 -->
+	<link href="/images/webappicon/icon.png" rel="apple-touch-icon" />
+	<link href="/images/webappicon/icon-76.png" rel="apple-touch-icon" sizes="76x76" />
+	<link href="/images/webappicon/icon-120.png" rel="apple-touch-icon" sizes="120x120" />
+	<link href="/images/webappicon/icon-152.png" rel="apple-touch-icon" sizes="152x152" />
+	<link href="/images/webappicon/icon-180.png" rel="apple-touch-icon" sizes="180x180" />
+	<link href="/images/webappicon/icon-192.png" rel="icon" sizes="192x192" />
+	<link href="/images/webappicon/icon-128.png" rel="icon" sizes="128x128" />
+	<!-- Tile icon for Win8 (144x144 + tile color) -->
+	<!-- win 8 磁贴标题 -->
+	<meta name="application-name" content="径卫">
+	<!-- win 8 磁贴颜色 -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<!-- win 8 磁贴图标 -->
+	<meta name="msapplication-TileImage" content="/images/webappicon/apple-touch-icon-120x120.png">
+	<meta name="msapplication-tooltip" content="Tooltip">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<!--调试阶段禁止缓存,例如微信，QQ浏览器缓存-->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- Enable iOS 自动检测电话号码 -->
+	<meta name="format-detection" content="telephone=no" />
+	<!-- 禁止百度转码 -->
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<!-- Favicons -->
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- 针对手持设备优化  -->
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- UC应用模式 -->
+	<!--使用了application这种应用模式后，页面讲默认全屏，禁止长按菜单，禁止手势，标准排版，以及强制图片显示-->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="css/framework7.ios.min.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+	<link rel="stylesheet" href="css/allcss.min.css">
+	<!--引入百度地图-->
+</head>
+
+<body data-pageJs="call-center">
+	    <!-- 添加横屏时遮罩层 -->
+	<div class="trasfrm ds768">
+		<div class="padArow"></div>
+		<div class="iconPad_1">
+			<div class="iconpad_2"></div>
+		</div>
+		<div class="iconPad_1 trmoct">
+			<div class="iconpad_2"></div>
+		</div>
+		<p class="trapf"><strong></strong> 请 <strong>切换到竖屏</strong> 以达到最佳浏览效果</p>
+	</div>
+			<div id="centerPage" class="centerPage"></div>
+			<script type="text/x-template" id="app-centerPage">
+			<div class="centerPage">
+				<div class="centerPage" v-show="viewPage">
+			<!-- Panels Overlay -->
+			 <div class="panel-overlay"></div>
+
+			 <!-- Left Panel with Reveal effect -->
+			 <div class="panel panel-left panel-cover">
+				 <div class="content-block">
+						<div class="watch-left-top"><img src="images/person-left-touxiang.png" alt=""><p>{{userName}}</p></div>
+						<ul class="watch-left-bottom">
+							<li><i class="iconfont icon-shishijiankong"></i>实时监控<b></b></li>
+							<li><i class="iconfont icon-baojingjiankong"></i>报警监控<b></b></li>
+							<li><i class="iconfont icon-lishiguiji"></i>历史轨迹<b></b></li>
+							<li><i class="iconfont icon-zhengtijiankong"></i>整体监控<b></b></li>
+							<li><i class="iconfont icon-guzhangfenxi"></i>故障分析<b></b></li>
+							<li><i class="iconfont icon-zhilingxiafa"></i>指令下发<b></b></li>
+							<li><i class="iconfont icon-zhengjiandaoqi"></i>证件到期<b></b></li>
+							<li class="active"><i class="iconfont icon-chaxun"></i>查询中心<b></b></li>
+						</ul>
+				 </div>
+			 </div>
+
+			 <div class="statusbar-overlay"></div>
+			 <div class="views">
+				 <div class="view view-main">
+					 <!-- 导航 -->
+					 <div class="navbar" style="z-index:99999;height:2.2rem;">
+						 <div class="navbar-inner">
+								 <div class="left">
+										 <a href="#" data-panel="left" class="open-panel link"><i class="iconfont icon-juxing"></i></a>
+								 </div>
+								 <div class="head-center">查询中心</div>
+						 </div>
+					 </div>
+					 <!-- 主要内容 -->
+					 <div class="pages navbar-through toolbar-through">
+						 <div data-page="index" class="page">
+							 <div class="page-content">
+							 	<div class="indexPage-default" >
+							 		<div class="call-center" v-show="centerShow">
+					          		<ul class="tab-change">
+					          			<li :class="repeatTab==0?'active':''" @click="reportTab">报表查询</li>
+					          			<li :class="repeatTab==1?'active':''" @click="photoTab">照片查询</li>
+					          		</ul>
+					          		<!-- 报表查询 -->
+					          		<div class="report" v-show="repeatTab==0?true:false">
+					          			<!-- 车辆报表  车队报表tab -->
+										<div class="tab-two">
+											<a :class="carTab==0?'active':''" @click="carFormTab" href="javascript:;">车辆报表</a>
+											<a :class="carTab==1?'active':''" @click="teamFormTab" href="javascript:;">车队报表</a>
+										</div>
+										<div class="clear30"></div>
+										<!-- 车辆报表content -->
+					          			<ol class="cars" v-show="carTab==0?true:false">
+					          				<li>
+					          					<div class="alarmMonitor-right-top">
+														<div><i class="iconfont icon-chaxun"></i><input type="text" @focus="turnSearch(0)" placeholder="搜索车牌号"></div>
+												</div>
+					          				</li>
+						          			<li>
+						          				<div class="watch-right">
+													<div class="watch-right-top">
+														<div class="watch-right-top-top" style="padding: 0;margin:0 0.75rem;">选择车辆<b class="hide"></b><span class="mySearchInput" style="max-width:50%;overflow:hidden;">{{carLisrName}}</span></div>
+														<ul class="watch-right-ul">
+															<li v-for="item in teamitems" @click="teamsCars(item.id)">
+															 <div class="watch-right-ul-list-top"><em>{{item.name}}</em><span><b class="hide"></b></span></div>
+														 </li>
+														</ul>
+													</div>
+													<ul class="historical-track">
+														<li>
+													 		<label for="">开始时间</label>
+													 		<div class="txt">
+													 			<input type="text" readonly class="start_date" id="startDate" placeholder="请选择日期"/>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													 	<li>
+													 		<label for="">结束时间</label>
+													 		<div class="txt">
+													 			<input type="text" readonly class="end_date" id="endDate" placeholder="请选择日期"/>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													 	<li>
+													 		<label for="">报警类型</label>
+													 		<div class="txt" @click="alarmType">
+													 			<span class="alarmName">{{alarmName}}</span>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													</ul>
+												</div>
+												<div class="btn">
+														<a href="javascript:void(0);" class="makeSure" @click="carMakesure('.start_date','.end_date')">确定</a>
+												 </div>
+												
+						          			</li>
+						          		</ol>
+										<!-- 车队报表content -->
+					          			<ol class="carTeam" v-show="carTab==1?true:false">
+						          			<li>
+						          				<div class="watch-right">
+													<div class="watch-right-top">
+														<div class="watch-right-top-top" style="padding: 0;margin:0 0.75rem;">选择车队<b class="hide"></b><span style="max-width:50%;overflow:hidden;">{{teamListName}}</span></div>
+														<ul class="watch-right-ul">
+															<li v-for="item in teamitems" @click="selectTeam(item.id,item.name)">
+															 <div class="watch-right-ul-list-top"><em>{{item.name}}</em><span><b class="hide"></b></span></div>
+														 </li>
+														</ul>
+													</div>
+													<ul class="historical-track">
+														<li>
+													 		<label for="">开始时间</label>
+													 		<div class="txt">
+													 			<input type="text" readonly class="teamstart_date" id="teamStartDate" placeholder="请选择日期"/>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													 	<li>
+													 		<label for="">结束时间</label>
+													 		<div class="txt">
+													 			<input type="text" readonly class="teamend_date" id="teamEndDate" placeholder="请选择日期"/>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													 	<li>
+													 		<label for="">报警类型</label>
+													 		<div class="txt" @click="alarmType">
+													 			<span class="alarmName">{{alarmName}}</span>
+													 			<i class="jiantou"></i>
+													 		</div>
+													 	</li>
+													</ul>
+												</div>
+												<div class="btn">
+														<a href="javascript:void(0);" class="makeSure" @click="teamMakesure('.teamstart_date','.teamend_date')">确定</a>
+												 </div>
+						          			</li>
+						          		</ol>
+					          		</div>
+					          		<!-- 照片查询 -->
+					          		<ol class="photo-search" v-show="repeatTab==1?true:false">
+					          			<li>
+					          					<div class="alarmMonitor-right-top">
+														<div><i class="iconfont icon-chaxun"></i><input type="text" @focus="turnSearch(1)" placeholder="搜索车牌号"></div>
+												</div>
+					          			</li>
+					          			<li>
+					          				<div class="watch-right">
+												<div class="watch-right-top">
+													<div class="watch-right-top-top" style="padding: 0;margin:0 0.75rem;">选择车辆<b class="hide"></b><span style="max-width:50%;overflow:hidden;">{{carLisrName}}</span></div>
+													<ul class="watch-right-ul">
+														<li v-for="item in teamitems" @click="teamsCars(item.id)">
+														 <div class="watch-right-ul-list-top"><em>{{item.name}}</em><span><b class="hide"></b></span></div>
+													 	</li>
+													</ul>
+												</div>
+												<ul class="historical-track">
+													<li>
+												 		<label for="">开始时间</label>
+												 		<div class="txt">
+												 			<input type="text" readonly class="photostart_date" id="photoStartDate"  placeholder="请选择日期"/>
+												 			<i class="jiantou"></i>
+												 		</div>
+												 	</li>
+												 	<li>
+												 		<label for="">结束时间</label>
+												 		<div class="txt">
+												 			<input type="text" readonly class="photoend_date"  id="photoEndDate" placeholder="请选择日期"/>
+												 			<i class="jiantou"></i>
+												 		</div>
+												 	</li>
+												 	<li>
+												 		<label for="">报警类型</label>
+												 		<div class="txt"  @click="PICalarmType" >
+												 			<span class="alarmName">{{alarmName}}</span>
+												 			<i class="jiantou"></i>
+												 		</div>
+												 	</li>
+												</ul>
+											</div>
+											<div class="btn">
+													<a href="javascript:void(0);" @click="photoMakesure('.photostart_date','.photoend_date')" class="makeSure">确定</a>
+											 </div>
+											
+					          			</li>
+					          		</ol>
+					          		</div>
+					          		<!--筛选报警类型  开始-->
+									 <div class="warnType" v-show="warnTypeHide">
+										 <ul class="warnType-ul">
+										 	<li :class="alarmListId.indexOf('all')>-1?'active':''" id="all" @click="selectAll"><i class="iconfont icon-xingzhuang"></i>全部</li>
+											<li :class="alarmListId.indexOf(item.id)>-1?'active':''" v-for="item in alarmitems" @click="alarmTypeSelect(item.id)"><i class="iconfont icon-xingzhuang" ></i>{{item.name}}</li>
+										 </ul>
+										 <div class="filter-bottom-btn"><p @click="alarmReset">重置</p><p class="sure" @click="alarmTypeMakesure">确定</p></div>
+									 </div>
+									 <!--筛选报警类型  结束-->
+									 <!--照片查询筛选报警类型  开始-->
+									 <div class="warnType" v-show="warnTypeHide2">
+										 <ul class="warnType-ul">
+											<li :class="alarmListId2==item.id?'active':''"  v-for="item in alarmitems2" @click="PICalarmTypeSelect(item.id)"><i class="iconfont icon-xingzhuang" ></i>{{item.name}}</li>
+										 </ul>
+										 <div class="filter-bottom-btn"><p @click="alarmReset">重置</p><p class="sure" @click="PICalarmTypeMakesure">确定</p></div>
+									 </div>
+									 <!--照片查询筛选报警类型  结束-->
+									  <!-- 右侧车辆列表 开始 -->
+				           			 <div style="width:100%;height:100%;" v-show="rightCarList">
+										 <div class="filter-right-carsLists">
+										 	<ul class="filter-ul-lists">
+										 		<template v-for="item in teamsCaritems">
+												<li v-if="item.state==0" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-gary-01.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==1" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-gray-04.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==2" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-gray-03.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==3" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-gray-05.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==4" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-gray-02.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==5" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-blue-01.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==6" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-red-01.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==7" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-blue-03.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==8" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-red-02.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==9" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-blue-02.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												<li v-if="item.state==10" @click="selectCar(item.id,item.plate)" :class="carLisrId == item.id?'active':''">
+													<i class="iconfont icon-xingzhuang"></i><img src="images/car-red-03.png" alt="" /><p>{{item.plate}}</p>
+												</li>
+												</template>
+										 	</ul>
+										 	<div class="filter-bottom-btn"><p @click="reset">重置</p><p class="sure" @click="caesMakesure">确定</p></div>
+										 </div>
+									 </div>
+									 <!-- 右侧车辆列表 结束 -->
+									 <!-- 时间选择器  开始 -->
+									 <div class="pickerBg"></div>
+									<div id="picker-date-container" style="width:100%;position: fixed;bottom: 0;left: 0;z-index: 99999999;background: #fff;"></div>
+									<!-- 时间选择器 结束 -->
+							 	</div>
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+				</div>
+				
+			 </div>
+			   <!-- 搜索页面 开始 -->
+				 <div class="searchPages" v-show="searchPages">
+					 <div class="alarmMonitor-right-top">
+							 <div><i class="iconfont icon-chaxun"></i><input type="text" class="searchInput" v-model="vauleInput" placeholder="搜索车牌号" autofocus="true"></div>
+							<span class="searchSpan" @click="cancelSearch">取消</span>
+					 </div>
+					 <ul class="search-con">
+						 <li v-for="item in selectArr" @click="searchResult(item)">{{item.plate}}</li>
+					 </ul>
+				 </div>
+				 <!-- 搜索页面 结束 -->
+		 </div>
+		  </script>
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/device.min.js"></script>
+	<script type="text/javascript" src="js/lib/vue.min.js"></script>
+	<script type="text/javascript" src="js/lib/framework7.min.js"></script>
+	<script type="text/javascript" src="js/lib/framework7-vue.min.js"></script>
+	<script src="js/lib/require.js" data-main="js/app/main"></script>
+	<script type="text/javascript" src="js/app/picker.js"></script>
+	<script src="js/app/common.js"></script>
+
+</body>
+
+</html>

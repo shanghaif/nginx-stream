@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>径卫</title>
+	<meta name="description" content="">
+	<meta name="author" content="author">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!--高版本安卓Chrome卡片式切换的时候的皮肤（卡片）颜色-->
+	<meta name="theme-color" content="#9f0800">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+	<!--Safari 将会对有内容溢出 Viewport 区域的页面进行缩放适配，使溢出的内容完整展示而不出现滚动条，而在 Viewport 设置中引入了一个新属性 shrink-to-fit = no，该属性可以禁止这种缩放行为的发生。-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<!-- 指定苹果设备添加到主屏的标题 -->
+	<meta name="apple-mobile-web-app-title" content="报警监控">
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- IOS / Android 主屏图标 -->
+	<link href="/images/webappicon/icon.png" rel="apple-touch-icon" />
+	<link href="/images/webappicon/icon-76.png" rel="apple-touch-icon" sizes="76x76" />
+	<link href="/images/webappicon/icon-120.png" rel="apple-touch-icon" sizes="120x120" />
+	<link href="/images/webappicon/icon-152.png" rel="apple-touch-icon" sizes="152x152" />
+	<link href="/images/webappicon/icon-180.png" rel="apple-touch-icon" sizes="180x180" />
+	<link href="/images/webappicon/icon-192.png" rel="icon" sizes="192x192" />
+	<link href="/images/webappicon/icon-128.png" rel="icon" sizes="128x128" />
+	<!-- Tile icon for Win8 (144x144 + tile color) -->
+	<!-- win 8 磁贴标题 -->
+	<meta name="application-name" content="报警监控">
+	<!-- win 8 磁贴颜色 -->
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<!-- win 8 磁贴图标 -->
+	<meta name="msapplication-TileImage" content="/images/webappicon/apple-touch-icon-120x120.png">
+	<meta name="msapplication-tooltip" content="Tooltip">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<!--调试阶段禁止缓存,例如微信，QQ浏览器缓存-->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<!-- Enable iOS 自动检测电话号码 -->
+	<meta name="format-detection" content="telephone=no" />
+	<!-- 禁止百度转码 -->
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<!-- Favicons -->
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+	<!-- 针对手持设备优化  -->
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<meta name="x5-fullscreen" content="true">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- UC应用模式 -->
+	<!--使用了application这种应用模式后，页面讲默认全屏，禁止长按菜单，禁止手势，标准排版，以及强制图片显示-->
+	<meta name="browsermode" content="application">
+	<!-- QQ应用模式 -->
+	<meta name="x5-page-mode" content="app">
+	<!-- windows phone 点击无高光 -->
+	<meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="css/framework7.ios.min.css">
+	<link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+	<link rel="stylesheet" href="css/allcss.min.css">
+	<!--引入百度地图-->
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=7w1W3wrVyjK3O1INXeryGlHk75GOgtoc" type="text/javascript"></script>
+</head>
+
+<body data-pageJs="report-alarm-detail">
+	    <!-- 添加横屏时遮罩层 -->
+	<div class="trasfrm ds768">
+		<div class="padArow"></div>
+		<div class="iconPad_1">
+			<div class="iconpad_2"></div>
+		</div>
+		<div class="iconPad_1 trmoct">
+			<div class="iconpad_2"></div>
+		</div>
+		<p class="trapf"><strong></strong> 请 <strong>切换到竖屏</strong> 以达到最佳浏览效果</p>
+	</div>
+	<div id="alarmDetail2" class="alarmDetailPage"></div>
+    <script type="text/x-template" id="app-alarmDetail2">
+   	<div class="alarmDetailPage">
+ 		<div class="statusbar-overlay"></div>
+ 			<div class="views">
+	 			<div class="view view-main">
+		 			<!-- 主要内容 -->
+		 			<div class="pages">
+					 <div data-page="index" class="page">
+						  <!-- 右侧警报部分 开始 -->
+						 <div class="page-content alarm-monitor gray-bg">
+							  <div class="all-car-info" v-for="(item,index) in carsinfo">
+				                  <h3><b>{{item.plate}}</b><i class="weixian">{{item.alarm}}</i></h3>
+				                  <div class="car-info">
+				                      <div class="img-div">
+				                          <a href="#" class="img-div pb-standalone-dark" :data-index="index">
+							                  <img :src="item.picUrl" />
+							              </a>
+				                      </div>
+				                      <div class="info">
+				                          <p><span>车队名称:</span>{{item.team}}</p>
+				                          <p><span>行车速度:</span>{{item.speed}}km/h</p>
+				                          <p><span>报警位置:</span>{{item.addr}}</p>
+				                          <p><span>行车时间:</span>{{item.time}}</p>
+				                      </div>
+				                  </div>
+				              </div>
+						 </div>
+						 
+					 </div>
+		 			</div>
+
+		 		</div>
+	 		</div>
+	 </div>
+	 		  <!--全屏查看图片的容器-->
+	 <div class="view-main"></div>
+   	</script>
+  	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+  	<script type="text/javascript" src="js/lib/device.min.js"></script>
+	<script type="text/javascript" src="js/lib/vue.min.js"></script>
+	<script type="text/javascript" src="js/lib/framework7.min.js"></script>
+	<script type="text/javascript" src="js/lib/framework7-vue.min.js"></script>
+	<script src="js/lib/require.js" data-main="js/app/main"></script>
+	<script src="js/app/common.js"></script>
+</body>
+
+</html>

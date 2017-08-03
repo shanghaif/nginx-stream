@@ -1,0 +1,227 @@
+.map-div{
+    height: 17.5rem;
+    img{
+        width: 50%;
+         vertical-align: middle;
+         margin : 0 auto;
+    }
+    .BMap_Marker{
+        >.active{
+            text-align: center;
+            background: rgba(49,163,233,0.18);
+            border-radius: 50%;
+            -webkit-animation: moveWater ease 1.5s both infinite;
+            animation: moveWater ease 1.5s both infinite;
+        }
+    }
+    // .BMapLabel{
+    //    background: url(images/label-bg.png) no-repeat center !important;
+    //     border: none!important;
+    // }
+}
+// 警报详情  监控中心
+.car-now-info,.track-details{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 0 0.5rem 0.25rem;
+    height: 7.75rem;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    >h3{
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 0.85rem;
+        color: #333c48;
+        font-weight: normal;
+        border-bottom: solid 1px #e7e7e7;
+        >span{
+            font-size: 0.6rem;
+            color: #7f8fa4;
+        }
+    }
+    .car-info{
+        display: flex;
+        padding-top: 0.75rem;
+    }
+    .img-div{
+        display: block;
+        width: 4.9rem;
+        height: 3.65rem;
+        overflow: hidden;
+        border-radius: 0.1rem;
+         margin-right: 0.75rem;
+        >img{
+            width: 100%;
+        }
+    }
+    .info{
+        font-size: 0.55rem;
+        color: #333c48;
+        width: 9.25rem;
+        p{
+            line-height: 0.65rem;
+            margin-bottom: 0.38rem;
+             white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+        span{
+            color: #a1abb8;
+            display: inline-block;
+            width: 1.65rem;
+        }
+        .four{
+            width: 2.75rem;
+        }
+    }
+      .check-track{
+        color: #fff;
+        font-size: 0.45rem;
+        padding: 0 10px;
+        height: 1.1rem;
+        line-height: 1.1rem;
+        border-radius: 1.1rem;
+        float: right;
+        margin-top: 0.6rem;
+        background:#31a3e9;
+    }
+    .date-time{
+        float: right;
+        font-size: 0.6rem;
+        color:#55688d;
+        i.bianji{
+          margin: 0.85rem 0 0 0.2rem;
+          float: right;
+          width: 0.65rem;
+          height: 0.675rem;
+          background: url(../images/bianji.png) no-repeat;
+          background-size: 100% 100%;
+        }
+    }
+    .track-info{
+        width: 14.5rem;
+    }
+}
+
+
+//轨迹详情
+.track-details{
+    height: 9.65rem;
+}
+// 警报监控
+.warn-tips{
+    font-size: 0.55rem;
+    color: #7f8fa4;
+    line-height: 1.2rem;
+    height: 1.2rem;
+    padding: 0 0.5rem;
+    a{
+        color: #7f8fa4;
+    }
+    span{
+        color: #333c48;
+    }
+}
+.all-car-info{
+    padding: 0.25rem 0.5rem;
+    height: 6.6rem;
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    >h3{
+        height: 2.1rem;
+        line-height: 2.1rem;
+        font-size: 0.85rem;
+        color: #333c48;
+        font-weight: normal;
+        border-bottom: solid 1px #e7e7e7;
+        overflow: hidden;
+        >b{
+          display: inline-block;
+          font-weight: normal;
+          max-width: 50%;
+          float: left;
+          overflow: hidden;
+        }
+        >span{
+            font-size: 0.6rem;
+            color: #7f8fa4;
+        }
+    }
+    .car-info{
+        display: flex;
+        padding-top: 0.75rem;
+
+    }
+    .img-div{
+        width: 3.9rem;
+        height: 2.9rem;
+        overflow: hidden;
+        border-radius: 0.1rem;
+        margin-right: 0.75rem;
+        >img{
+            width: 100%;
+        }
+    }
+    .info{
+        font-size: 0.55rem;
+        color: #333c48;
+        width: 11.25rem;
+        p{
+            height: 0.62rem;
+            line-height: 0.72rem;
+            margin-bottom: 0.28rem;
+             white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            &:last-child{
+                margin-bottom: 0px;
+            }
+        }
+        span{
+            color: #a1abb8;
+            display: inline-block;
+            width: 2.7rem;
+        }
+    }
+    .weixian,.chaosu{
+        color: #df4545;
+        font-size: 0.45rem;
+        display: inline-block;
+        padding: 1px 10px;
+        height: 0.65rem;
+         line-height: 0.8rem;
+        border-radius: 0.65rem;
+        border: solid 1px #df4545;
+        float: right;
+        margin-top: 0.6rem;
+    }
+    .chaosu{
+        color: #ff904d;
+        border: solid 1px #ff904d;
+    }
+
+}
+.btn-div{
+    margin: 0.75rem 0 0;
+    >button{
+        display: block;
+        width: 100%;
+        height: 2rem;
+        background: #2d9df7;
+        color: #fff;
+        font-size: 0.7rem;
+        line-height: 2rem;
+        text-align: center;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+    }
+}

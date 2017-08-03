@@ -1,0 +1,70 @@
+.addrEnd-defalut-ul{
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  li{
+    height: 4.35rem;
+    padding: 0.5rem 0 0.625rem;
+    border-bottom: 1px #e7e7e7 solid;
+    box-sizing: border-box;
+    >p{
+      height: 1.35rem;
+      line-height: 1.35rem;
+      color:#333;
+      font-size: 0.7rem;
+    }
+    >div{
+      height: 0.925rem;
+      line-height: 0.925rem;
+      font-size: 0.6rem;
+      color:#55688d;
+      position: relative;
+      &>span{
+       position: absolute;
+       right:0;
+       bottom:0.25rem;
+       font-weight: bold;
+       font-size: 1.1rem;
+       color:#3ec694;
+       &.active{
+         color:#f66262;
+       }
+        >em{
+         font-size: 0.6rem;
+        }
+      }
+      &>b{
+        float: right;
+        font-weight: normal;
+      }
+    }
+  }
+}
+.addrEndTop{
+  border-bottom: 1px #e7e7e7 solid;
+}
+.addrEndBottom-ul{
+  width: 100%;
+  padding: 0 .75rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: none;
+  li{
+    width: 47%;
+    height: 1.35rem;
+    font-size: .55rem;
+    color: #55677d;
+    text-align: center;
+    line-height: 1.28rem;
+    border: 1px solid #ced0da;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    &.active{
+      border: 1px solid #2d9df7;
+      color: #2d9df7;
+    }
+  }
+}
