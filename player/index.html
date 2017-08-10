@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="video-js-6.2.5/video-js.css" rel="stylesheet">
+  <!-- If you'd like to support IE8 -->
+  <script src="video-js-6.2.5/ie8/videojs-ie8.min.js"></script>
+    <!-- Set the location of the flash SWF -->
+  <script>
+    videojs.options.flash.swf = 'video-js-swf-5.3.0/dist/video-js.swf';
+    videojs.options.preload = false;
+    videojs.options.flash.preload = false;
+  </script>
+</head>
+
+<body>
+  <video id="my-video" class="video-js" controls preload="none" width="640" height="480" data-setup='{"techOrder": ["flash"]}'>
+    <source src="rtmp://116.62.61.121:50071/hls/&tester" type='rtmp/flv'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+
+  <script src="video-js-6.2.5/video.js"></script>
+  <script src="videojs-flash-2.0.0/dist/videojs-flash.js"></script>
+</body>
+</html>
