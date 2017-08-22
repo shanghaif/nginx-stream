@@ -17,6 +17,15 @@ typedef struct _NaluUnit
 	unsigned char data[BUFFER_SIZE];
 }NaluUnit;
 
+static int64_t get_current_ms()
+{
+	struct timespec tm;
+	if(clock_gettime(CLOCK_MONOTONIC, &tm) < 0)
+		return -1;
+
+	return (int64_t)tm.tv_sec*1000 + (int64_t)tm.tv_nsec/1000000;
+}
+
 static unsigned char* find_h264_startcode(unsigned char *buf_begin, unsigned char *buf_end, int *startcode_len)
 {
 	unsigned char *pb=buf_begin, *pe=buf_end;
@@ -181,6 +190,27 @@ int video_h264_encode(video_h264_t *vh, GetVideoFrame get_frame, void *user_data
 
 	return 0;
 }
+
+int video_h264_clear_source_buffer(video_h264_t *vh)
+{
+	am_bs_frame_info info;
+	int64_t last = get_current_ms();
+	int64_t curr;
+
+	while(vh->abort == 0)
+	{
+		if(am_bs_get_one_frame(vh->handle, &info, 0) >= 0)
+		{
+			curr = get_current_ms();
+			if(curr - last > 10)
+				return 0;
+			last = curr;
+		}
+	}
+	
+	return 0;
+}
+
 
 int video_h264_pause(video_h264_t *vh)
 {

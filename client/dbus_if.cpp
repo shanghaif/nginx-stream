@@ -16,7 +16,7 @@ on_handle_open_stream(
 {
 	gboolean ret;
 	
-	g_conn = rtmp_client_init();
+	g_conn = rtmp_client_init(11025, 16000, 1);
 	if(g_conn == NULL)
 	{
 		ret = FALSE;

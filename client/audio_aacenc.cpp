@@ -112,12 +112,17 @@ static snd_pcm_uframes_t set_pcm_parameter(snd_pcm_t *handle, snd_pcm_stream_t s
 	if (buffer_time > 500000)
 		buffer_time = 500000;
 
-	unsigned period_time = buffer_time / 4; /* 125ms */
+#if 0
+	unsigned period_time = buffer_time / 8;
 	err = snd_pcm_hw_params_set_period_time_near(handle, params, &period_time, 0);
 	assert(err >= 0);
 
 	err = snd_pcm_hw_params_set_buffer_time_near(handle, params, &buffer_time, 0);
 	assert(err >= 0);
+#else
+	err = snd_pcm_hw_params_set_period_size(handle, params, 1024, 0); //ensure pcm_size = 2048
+	assert(err >= 0);
+#endif
 
 	err = snd_pcm_hw_params(handle, params);
 	if (err < 0) {
@@ -163,7 +168,7 @@ static snd_pcm_uframes_t set_pcm_parameter(snd_pcm_t *handle, snd_pcm_stream_t s
 	enc->bits_per_frame = enc->bits_per_sample * enc->audio_channel;
 
 	size_t chunk_bytes = chunk_size * enc->bits_per_frame / 8;
-	printf("%s:%d chunk_size = %d, chunk_bytes = %d, buffer_size = %d\n\n",
+	printf("%s:%d chunk_size = %d, chunk_bytes = %d, buffer_size = %d\n",
 		__FILE__, __LINE__, (int)chunk_size, chunk_bytes, (int)buffer_size);
 
 	return chunk_size;
@@ -296,7 +301,7 @@ static size_t handle_data_copy(audio_aacenc_t *enc, snd_pcm_uframes_t chunk_size
 	return bfcount;
 }
 
-audio_aacenc_handle audio_aacenc_init()
+audio_aacenc_handle audio_aacenc_init(int sample_rate, int bit_rate, int channels)
 {
 	audio_aacenc_t *enc = (audio_aacenc_t *)malloc(sizeof(audio_aacenc_t));
 	if(enc == NULL)
@@ -306,8 +311,8 @@ audio_aacenc_handle audio_aacenc_init()
 	
 	/* setup PCM */
 	enc->pcm_format = SND_PCM_FORMAT_S16_LE;
-	enc->audio_channel = 1;
-	enc->sample_rate = 8000;
+	enc->audio_channel = channels;
+	enc->sample_rate = sample_rate;
 
 	int err = snd_pcm_open(&enc->pcm_handle, "default", SND_PCM_STREAM_CAPTURE, 0);
 	if (err < 0) {
@@ -321,14 +326,14 @@ audio_aacenc_handle audio_aacenc_init()
 	}
 	
 	/* setup AAC */
-	enc->aaccfg.enc_mode = 0;
-	enc->aaccfg.sample_freq = 8000;
-	enc->aaccfg.coreSampleRate = 8000;
-	enc->aaccfg.Src_numCh = 1;
-	enc->aaccfg.Out_numCh = 1;
+	enc->aaccfg.enc_mode = 0; //AAC Main
+	enc->aaccfg.sample_freq = sample_rate;
+	enc->aaccfg.coreSampleRate = sample_rate;
+	enc->aaccfg.Src_numCh = channels;
+	enc->aaccfg.Out_numCh = channels;
 	enc->aaccfg.tns = 1;
 	enc->aaccfg.ffType = 't';
-	enc->aaccfg.bitRate = 8000;
+	enc->aaccfg.bitRate = bit_rate;
 	enc->aaccfg.quantizerQuality = 2;
 	enc->aaccfg.codec_lib_mem_adr = (u32*)enc->mpTmpEncBuf;
 	aacenc_setup(&enc->aaccfg);
